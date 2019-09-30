@@ -10,17 +10,20 @@
     margin-right: 10px;
 }
 
+.imagen_product_img {
+    width: 70%;
+    height: auto;
+}
+
 .ima {
     margin-left: 150px;
 }
 
-.descripcion {
-    float: left;
-    margin-left: 50px;
-}
-
 .producto_titulo {
     color: #71E828;
+}
+
+.titulo_producto_selecionado {
     font-size: 50px;
 }
 
@@ -65,4 +68,10 @@ p {
 .sillas {
     float: left;
     width: 100%;
+}
+
+.price_article {
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }

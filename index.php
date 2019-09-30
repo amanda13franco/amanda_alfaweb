@@ -15,6 +15,55 @@
 
 <body>
 
+    <?php 
+        //Declaración de artículos.
+        $articulos = array(
+            [
+                "id" => 1,
+                "nombre" => "Silla azul",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 40.25,
+                "imagen" => "imagenes/silla1.jpg"
+            ],
+            [
+                "id" => 2,
+                "nombre" => "Silla morada",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 49.25,
+                "imagen" => "imagenes/silla2.jpg"
+            ],[
+                "id" => 3,
+                "nombre" => "Silla roja",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 80.25,
+                "imagen" => "imagenes/silla3.jpg"
+            ],[
+                "id" => 4,
+                "nombre" => "Silla café",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 15.99,
+                "imagen" => "imagenes/silla4.jpg"
+            ]
+        );
+
+        $articulos_oferta = array(
+            [
+                "id" => 5,
+                "nombre" => "Silla café claro",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 90.25,
+                "imagen" => "imagenes/silla5.jpg"
+            ],
+            [
+                "id" => 6,
+                "nombre" => "Sillón blanco",
+                "descripcion" => "Aquí va la descripción del producto.",
+                "precio" => 200.40,
+                "imagen" => "imagenes/silla6.jpg"
+            ]
+        );
+    ?>
+
     <div class="cuerpo">
         <header>
             <div class="title_container">
@@ -68,70 +117,48 @@
                 <form action="producto.php" method="post">
                     <label class="title_product proMeses">Nuevos Productos En septiembre</label>
                     <div class="sillas form_products">
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla1.jpg"/>
-                            <h5 class="producto_titulo"><strong>Silla azul claro</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="1">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla2.jpg" />
-                            <h5 class="producto_titulo"><strong>Silla azul fuerte</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="2">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla3.jpg" />
-                            <h5 class="producto_titulo"><strong>Silla roja</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="3">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla4.jpg" />
-                            <h5 class="producto_titulo"><strong>Silla café</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="4">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
+                       
+                        <?php 
+                            foreach($articulos as $articulo) { ?> 
+                                <div class="producto_principal" >
+                                    <img src="<?php echo($articulo['imagen']); ?>"/>
+                                    <h5 class="producto_titulo"><strong><?php echo($articulo['nombre']); ?></strong> </h5> 
+                                    <p  class="text-justify"><?php echo($articulo['descripcion']); ?></p>
+                                    <strong>$ <?php echo($articulo['precio']); ?></strong>
+                                    <button class="btn btn_producto_agregar btn-block" name="valor" value="<?php echo($articulo['id']); ?>">
+                                        <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
+                                    Añadir a cesta</button>
+                                </div>
+                        <?php }//End for each article ?>
+
+
                     </div>
                     <br>
                     <label class="title_product proMeses2">Productos Destacados</label>
                     <div class="sillas">
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla5.jpg" />
-                            <h5 class="producto_titulo"><strong>Silla café claro</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="5">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
-                        <div class="producto_principal" >
-                            <img src="imagenes/silla6.jpg" />
-                            <h5 class="producto_titulo"><strong>Sillón blanco</strong> </h5> 
-                            <p  class="text-justify">Aquí va la descripción del producto.</p>
-                            <strong>$ 40.25</strong>
-                            <button class="btn btn_producto_agregar btn-block" name="valor" value="6">
-                                <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
-                            Añadir a cesta</button>
-                        </div>
+
+                        <?php 
+                            foreach($articulos_oferta as $articulo) { ?> 
+                                <div class="producto_principal" >
+                                    <img src="<?php echo($articulo['imagen']); ?>" />
+                                    <h5 class="producto_titulo"><strong><?php echo($articulo['nombre']); ?></strong> </h5> 
+                                    <p  class="text-justify"><?php echo($articulo['descripcion']); ?></p>
+                                    <strong>$ <?php echo($articulo['precio']); ?></strong>
+                                    <button class="btn btn_producto_agregar btn-block" name="valor" value="<?php echo($articulo['id']); ?>">
+                                        <i class="fa fa-shopping-cart" arial-hidden="true"></i>    
+                                    Añadir a cesta</button>
+                                </div>
+                        <?php }//End for each ofert?>
+                        
+                       
                     </div>
                 </form>
             </div>
         </div>
     </div><br>
  
+    
+
     <footer class="footer_content">
         <div class="row" style="width: 100%; margin: 0;">
             <div class="col-md-3 mx-auto mt-3 secction_footer">

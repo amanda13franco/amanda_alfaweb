@@ -63,4 +63,19 @@
     .row {
         display: grid;
     }
+    .product_description {
+        text-align: center;
+    }
+    .product_description p {
+        text-align: center;
+    }
+    .image_product {
+        background-color: blue;
+    }
+    .jhudsjs {
+        background-color: aquamarine;
+    }
+    .imagen_product_img {
+        width: 100%;
+    }
 }
