@@ -39,91 +39,171 @@
            
         </header>
 
-        <?php 
-
-if(isset($_POST['submit'])){
-    $to = "amanda.vianey.franco.uribe.306@gmail.com"; // this is your Email address
-   
-    $name = $_POST ['name_user'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $commentary  = $_POST['commentary'];
-    $capchat = $_POST['capchat'];
-
-    echo "name .$name. phone .$phone. email .$email. commentary .$commentary.capchat .$capchat.";
-
-    $subject = "Form submission";
-    //$subject2 = "Copy of your form submission";
-    //$message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'];
-    // $message  = "El usuario: .$name. ";
-    //$message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
-    $headers = "From:" . $email;
-    //$headers2 = "From:" . $to;
-    
-    //data
-    $msg = "Your MSG <br>\n";       
-
-    //Headers
-    $headers  = "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: <".$email. ">" ;
-
-    // mail($to,$subject,$msg,$headers);
-    echo "Mail Sent.";
-    //mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-    //echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-    //You can also use header('Location: thank_you.php'); to redirect to another page.
+        <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'phpmailer/Exception.php';
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+$valid_captcha = true;
+    if (isset($_POST['submit'])) {
+        $to = "amanda.vianey.franco.uribe.306@gmail.com"; // this is your Email address
+        $name = $_POST['name_user'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $commentary  = $_POST['commentary'];
+        $capchat = $_POST['capchat'];
+        $subject = "Form submission";
+        $headers = "From:" . $email;
+        //data
+        $msg = "Your MSG <br>\n";
+        //Headers
+        $headers  = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
+        $headers .= "From: <" . $email . ">";
+        // if(mail($to,$subject,$msg,$headers)) {
+        //     echo "Mail Sent.";
+        // }else {
+        //     echo "No sent";
+        // }
+        $codigo_capchat = $_POST['codigo_capchat'];
+        $valid_captcha = ($capchat == $codigo_capchat);
+        if ($valid_captcha) {
+            $subject = "El usuario $email ha enviado un comentario";
+            //data
+            $msg = "$email ha comentado: <br>\n $commentary<br><h4>Datos de contacto</h4>Nombre: $name<br>Teléfono: $phone<br>Correo: $email";
+            $msg_user = "<center><h1>Gracias por ponerte en contacto<h1></center><br> FornitureStore está para servirte";
+            
+            $mail = new PHPMailer(true);
+                try {
+                    //Server settings
+                    $mail->SMTPDebug = 0;                      // Enable verbose debug output
+                    $mail->isSMTP();                                            // Send using SMTP
+                    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+                    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                    $mail->Username   = 'forniturestoreamanda@gmail.com';                     // SMTP username
+                    $mail->Password   = 'Escuela1234';                               // SMTP password
+                    $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+                    $mail->Port       = 587;                                    // TCP port to connect to
+            
+            
+                    //Recipients
+                    $mail->setFrom('forniturestore@gmail.com', 'FornitureStore');
+                    $mail->addAddress($email);     // Add a recipient
+                    // Attachments
+                    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                    // Content
+            
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'Gracias por tu comentario';
+                    $mail->Body    = $msg_user;
+                    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                    $mail->send();
+                    $mail->addAddress('amanda.vianey.franco.uribe.306@gmail.com');     // Add a recipient
+                    // Attachments
+                    // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                    // Content
+            
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'FornitureStore comentarios de usuario';
+                    $mail->Body    = $msg;
+                    // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                    
+                    $mail->send();
+                    // echo 'Message has been sent';
+                } catch (Exception $e) {
+                    // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+        }
     }
+    $codigo_captcha = rand(100000, 999999);
 ?>
  
     <!-- Inicio de contenido -->
-    <div class="container text-center mt-4">
-        <h3>Contacto</h3>
-        <br>
-        <form action="" method="post">
+    <?php if (!$valid_captcha) { ?>
+        <h1>Capcha invalido...</h1>
+        <form class="mt-5 main_login text-center" action="" method="post">
             <div class="form-group row">
                 <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nameUser"  
-                        placeholder="Nombre del cliente" minlength="3" name="name_user" required>
+                    <input type="text" class="form-control" id="nameUser" value="<?php echo ($name); ?>" placeholder="Nombre del cliente" minlength="3" name="name_user" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="phone" class="col-sm-2 col-form-label">Teléfono</label>
                 <div class="col-sm-10">
-                    <input type="tel" class="form-control" id="phone" 
-                     placeholder="5576590621" minlength="9" name="phone" required>
+                    <input type="tel" class="form-control" id="phone" value="<?php echo ($phone); ?>" placeholder="55-145151515-15" minlength="9" name="phone" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Correo</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" 
-                     placeholder="correo@dominio.com" minlength="9" name="email" required>
+                    <input type="email" class="form-control" id="email" value="<?php echo ($email); ?>" placeholder="correo@gmail.com" minlength="9" name="email" required>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="comentario" class="col-sm-2 col-form-label">Comentario</label>
                 <div class="col-sm-10">
-                    <textarea type="text" class="form-control" id="comentario" 
-                     required  minlength="15" name="commentary"></textarea>
+                    <textarea type="text" class="form-control" id="comentario" required minlength="15" name="commentary"><?php echo ($commentary); ?></textarea>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="capcha" class="col-sm-2 col-form-label">Ingrese el código</label>
                 <div class="col-sm-4">
-                    <img src="captcha.php">
+                    <img src="captcha generado.php?codigo_capcha=<?php echo ($codigo_captcha); ?>">
                 </div>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="capcha" 
-                     minlength="4" name="capchat" required>
+                    <input type="text" class="form-control" id="capcha" minlength="4" name="capchat" required>
                 </div>
             </div>
-            <button type="submit"  name="submit" class="boton">Enviar</button>
+            <input type="hidden" value="<?php echo ($codigo_captcha); ?>" name="codigo_capchat">
+            <button type="submit" name="submit" class="btn btn-car-primary-register btn-block">Enviar</button>
         </form>
-    </div>
+
+    <?php } else {  ?>
+        <form class="mt-5 main_login text-center" action="" method="post">
+            <div class="form-group row">
+                <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nameUser" placeholder="Nombre del cliente" minlength="3" name="name_user" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="phone" class="col-sm-2 col-form-label">Teléfono</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control" id="phone" placeholder="55-145151515-15" minlength="9" name="phone" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Correo</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="correo@gmail.com" minlength="9" name="email" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="comentario" class="col-sm-2 col-form-label">Comentario</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="comentario" required minlength="15" name="commentary"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="capcha" class="col-sm-2 col-form-label">Ingrese el código</label>
+                <div class="col-sm-4">
+                    <img src="captcha_generado.php?codigo_capcha=<?php echo ($codigo_captcha); ?>">
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="capcha" minlength="4" name="capchat" required>
+                    <input type="hidden" value="<?php echo ($codigo_captcha); ?>" name="codigo_capchat">
+                </div>
+            </div>
+            <button type="submit" name="submit" class="btn btn-car-primary-register btn-block">Enviar</button>
+        </form>
+    <?php } ?>
+</div>
     
     <!-- Fin de conenido -->
    
