@@ -9,34 +9,43 @@
     <link href="css/header.css" rel="stylesheet" type="text/css" />
     <link href="css/contacto.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">  
+    <link href="css/producto.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/responsive_main.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
 </head>
 
 <body>
     <div class="cuerpo">
     <header>
-            <h1>furniture</h1><label class="titulo">store</label>
+            <div class="title_container">
+                <h1>furniture</h1><label class="titulo">store</label>
+            </div>
 
             <button>Envios</button>
             <button>Búsqueda avanzada</button>
             <button>Crear una cuenta</button>
             <button>Iniciar la sesión</button>
             <label class="carrito"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito 0 Productos</label>
-            <label class="subtitulo">The biggest choice on this web</label><br />
-            <div class="verdes">
-                <button class="botonesverdes1" onclick="location.href='index.php'">Inicio</button>
-                <button onclick="location.href='quienessomos.html'" class="botonesverdes">Empresa-Somos</button>
-                <form action="producto.php" method="post">
-                <button class="botonesverdes" onclick="location.href='producto.php'" name="valor" value="0">Productos</button>
-                </form>
-                <button onclick="location.href='contacto.php'" class="botonesverdes">Contacto</button>
-                <button class="botonesverdes2">&emsp;</button>
+            <label class="subtitulo">The biggest choice on this web</label>
+            <br>
+            <div style="width=100%;">
+                <div class="verdes">
+                    <button class="botonesverdes1 btn_header" onclick="location.href='index.php'">Inicio</button>
+                    <button onclick="location.href='quienessomos.html'" class="botonesverdes btn_header">Empresa-Somos</button>
+                    <form action="producto.php" method="post">
+                    <button class="botonesverdes btn_header" onclick="location.href='producto.php'" name="valor" value="0">Productos</button>
+                    </form>
+                    <button onclick="location.href='contacto.php'" class="botonesverdes btn_header">Contacto</button>
+                    <button class="botonesverdes2 btn_header">&emsp;</button>
+                </div>
+                
+                <div class="container_seach">    
+                    <input type="text" placeholder="Búsqueda del sitio">
+                    <button class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i> </button>
+                    <!-- <span class="input-group-text" id="inputGroup-sizing-sm">Small</span> -->
+                </div>
             </div>
-            
-           
-                <input type="text" placeholder="Búsqueda del sitio">
-            <button class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i> </button>
-            <!-- <span class="input-group-text" id="inputGroup-sizing-sm">Small</span> -->
-           
         </header>
 
         <?php
@@ -123,6 +132,7 @@ $valid_captcha = true;
     <?php if (!$valid_captcha) { ?>
         <h1>Capcha invalido...</h1>
         <form class="mt-5 main_login text-center" action="" method="post">
+            <h2>Contacto</h2>
             <div class="form-group row">
                 <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
@@ -159,11 +169,12 @@ $valid_captcha = true;
                 </div>
             </div>
             <input type="hidden" value="<?php echo ($codigo_captcha); ?>" name="codigo_capchat">
-            <button type="submit" name="submit" class="btn btn-car-primary-register btn-block">Enviar</button>
+            <button type="submit" name="submit" class="btn btn_producto_agregar btn-block">Enviar</button>
         </form>
 
     <?php } else {  ?>
         <form class="mt-5 main_login text-center" action="" method="post">
+            <h2>Contacto</h2>
             <div class="form-group row">
                 <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
@@ -200,7 +211,7 @@ $valid_captcha = true;
                     <input type="hidden" value="<?php echo ($codigo_captcha); ?>" name="codigo_capchat">
                 </div>
             </div>
-            <button type="submit" name="submit" class="btn btn-car-primary-register btn-block">Enviar</button>
+            <button type="submit" name="submit" class="btn btn_producto_agregar btn-block">Enviar</button>
         </form>
     <?php } ?>
 </div>
@@ -209,30 +220,31 @@ $valid_captcha = true;
    
     <!--Fin div principal-->
     </div><br>
-<div class="footer_p">
-        <footer>
-            <div class="fo1 iniciar_footer">
+    
+    <footer class="footer_content">
+        <div class="row" style="width: 100%; margin: 0;">
+            <div class="col-md-3 mx-auto mt-3 secction_footer">
                 <label class="letrasfo1">Casa</label><br />
                 <label class="letrasfo1">Destacados</label><br />
                 <label class="letrasfo1">Que hay de nuevo?</label><br />
                 <label class="letrasfo1">Comentarios</label>
             </div>
-            <div class="fo1">
+            <div class="col-md-3 mx-auto mt-3 secction_footer">
                 <label class="letrasfo2">Top ventas</label><br />
                 <label class="letrasfo2">Especiales</label><br />
                 <label class="letrasfo2">Fabricantes</label><br />
                 <label class="letrasfo2">Proveedores</label>
             </div>
-            <div class="fo1">
+            <div class="col-md-3 mx-auto mt-3 secction_footer">
                 <label class="letrasfo2">Iniciar la sesión</label><br />
                 <label class="letrasfo2">Crear una cuenta</label><br />
                 <label class="letrasfo2">Envíos y devoluciones</label>
             </div>
-            <div class="fo1">
+            <div class="col-md-2 mx-auto mt-3 secction_footer">
                 <label class="letrasfo2">Furniture store &copy;2013 Confidencialidad Condiciones de uso</label>
             </div>
-        </footer>
-    </div>
+        </div>    
+    </footer>
     
     <script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="assets/jquery/jquery.slim.min.js"></script>

@@ -56,4 +56,11 @@
         text-align: center;
         margin-bottom: 15px;
     }
+    .sillas {
+        margin: auto;
+        width: 100%;
+    }
+    .row {
+        display: grid;
+    }
 }

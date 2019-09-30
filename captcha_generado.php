@@ -1,7 +1,7 @@
 <?php 
     //Crear captchat
     $imagen = imagecreate(80,40);
-    $fondo = imagecolorallocate($imagen, 242, 99, 75);
+    $fondo = imagecolorallocate($imagen, 0, 210, 0);
     if(isset($_GET['codigo_capcha'])){
         $codigo_capcha = $_GET ['codigo_capcha'];
     }

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/responsive_main.css">
-
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </head>
 
@@ -46,15 +45,12 @@
                     <!-- <span class="input-group-text" id="inputGroup-sizing-sm">Small</span> -->
                 </div>
             </div>
-
-           
-           
         </header>
         <div class="contenedor">
             <div class="baner_init"> 
                 <img src="imagenes/banner.jpg" />
             </div><br>
-            <div class="botonesillas">
+            <div class="row container_categorys_articles">
                 <div class="botonesgrises">
                     <input type="button" class="botongris" value="Bedroom" /><br />
                     <input type="button" class="botongris" value="Bathroom" /><br />
@@ -69,7 +65,7 @@
                     <input type="button" class="botongris" value="Lighting" /><br />
                     <input type="button" class="botongris" value="Fixtures and Fittings" />
                 </div>
-                <form class="form_products" action="producto.php" method="post">
+                <form action="producto.php" method="post">
                     <label class="title_product proMeses">Nuevos Productos En septiembre</label>
                     <div class="sillas form_products">
                         <div class="producto_principal" >
@@ -82,7 +78,7 @@
                             Añadir a cesta</button>
                         </div>
                         <div class="producto_principal" >
-                        <img src="imagenes/silla2.jpg" />
+                            <img src="imagenes/silla2.jpg" />
                             <h5 class="producto_titulo"><strong>Silla azul fuerte</strong> </h5> 
                             <p  class="text-justify">Aquí va la descripción del producto.</p>
                             <strong>$ 40.25</strong>
@@ -91,7 +87,7 @@
                             Añadir a cesta</button>
                         </div>
                         <div class="producto_principal" >
-                        <img src="imagenes/silla3.jpg" />
+                            <img src="imagenes/silla3.jpg" />
                             <h5 class="producto_titulo"><strong>Silla roja</strong> </h5> 
                             <p  class="text-justify">Aquí va la descripción del producto.</p>
                             <strong>$ 40.25</strong>
@@ -111,7 +107,7 @@
                     </div>
                     <br>
                     <label class="title_product proMeses2">Productos Destacados</label>
-                    <div class="sillas2">
+                    <div class="sillas">
                         <div class="producto_principal" >
                             <img src="imagenes/silla5.jpg" />
                             <h5 class="producto_titulo"><strong>Silla café claro</strong> </h5> 

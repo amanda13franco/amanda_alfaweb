@@ -1,7 +1,7 @@
 ﻿.producto_principal {
     width: 160px;
     float: left;
-    margin-right: 10px;
+    padding: 2%;
 }
 
 .producto_principal img {
@@ -56,7 +56,6 @@
     border-color: white;
     border-top-color: #dccfcf;
     padding: 15px;
-    margin-bottom: 30%;
 }
 
 .sill {
@@ -67,4 +66,8 @@
 .botonesgrises {
     float: left;
     margin-right: 20px;
+}
+
+.container_categorys_articles {
+    margin-left: 0px;
 }
