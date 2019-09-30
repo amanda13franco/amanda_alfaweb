@@ -193,7 +193,7 @@ $valid_captcha = true;
             <div class="form-group row">
                 <label for="capcha" class="col-sm-2 col-form-label">Ingrese el código</label>
                 <div class="col-sm-4">
-                    <img src="captcha generado.php?codigo_capcha=<?php echo ($codigo_captcha); ?>">
+                    <img src="captcha_generado.php?codigo_capcha=<?php echo ($codigo_captcha); ?>">
                 </div>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="capcha" minlength="4" name="capchat" required>
