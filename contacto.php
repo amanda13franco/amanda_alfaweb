@@ -130,7 +130,7 @@ $valid_captcha = true;
  
     <!-- Inicio de contenido -->
     <?php if (!$valid_captcha) { ?>
-        <h1>Capcha invalido...</h1>
+        <h3>Catpcha incorrecto, porfavor intente de nuevo.</h3>
         <form class="mt-5 main_login text-center" action="" method="post">
             <h2>Contacto</h2>
             <div class="form-group row">

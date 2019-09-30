@@ -214,8 +214,8 @@ $codigo_captcha = rand(100000, 999999);
                     if (!$valid_captcha) {  ?>
                         <form class="form_buy_article" action="" method="post">
                             <div class="text-center">
-                                <h1>captcha invalido</h1>
-                                <h3>Datos para realizar la compra</h3>
+                                <h3>Catpcha incorrecto, porfavor intente de nuevo.</h3>
+                                <h3>Ingrese los siguientes datos para la compra</h3>
                             </div>
                             <div class="form-group row mt-md-5">
                                 <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
@@ -265,8 +265,8 @@ $codigo_captcha = rand(100000, 999999);
                     <?php } else {
 
                             //data
-                            $msg = "Nueva venta al usuario $email quiere comprar el siguiente producto:<br>\n <h2>Datos del producto</h2>Nombre: {$articulo_seleccionado['nombre']}<br>Cantidad: $cantidad<br>Precio: {$articulo_seleccionado['precio']}";
-                            $msg_user = "<center><h2>Compra del producto {$articulo_seleccionado['nombre']} realizada<h2></center><br> <p> Es un gusto venderte.</p> <br> procesaremos tu compra.";
+                            $msg = "El usuario $email quiere comprar el siguiente producto:<br>\n <h2>Datos del producto</h2>Nombre: {$articulo_seleccionado['nombre']}<br>Cantidad: $cantidad<br>Precio: {$articulo_seleccionado['precio']}";
+                            $msg_user = "<center><h2>Compra del producto {$articulo_seleccionado['nombre']} realizada<h2></center><br> <p> Gracias por tu preferencia.</p>";
 
                             $mail = new PHPMailer(true);
 
@@ -283,14 +283,14 @@ $codigo_captcha = rand(100000, 999999);
 
 
                                 //Recipients
-                                $mail->setFrom('marketcart23@gmail.com', 'Founiture store');
+                                $mail->setFrom('forniturestoreamanda@gmail.com', 'FornitureStore');
                                 $mail->addAddress('amanda.vianey.franco.uribe.306@gmail.com');     // Add a recipient
                                 // Attachments
                                 // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                                 // Content
 
                                 $mail->isHTML(true);                                  // Set email format to HTML
-                                $mail->Subject = "Compra de producto {$articulo_seleccionado['nombre']}";
+                                $mail->Subject = "Producto {$articulo_seleccionado['nombre']}";
                                 $mail->Body    = $msg;
                                 // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -303,7 +303,7 @@ $codigo_captcha = rand(100000, 999999);
                                 // Content
 
                                 $mail->isHTML(true);                                  // Set email format to HTML
-                                $mail->Subject = "compra del producto {$articulo_seleccionado['nombre']} Founiture store";
+                                $mail->Subject = "Producto {$articulo_seleccionado['nombre']} FornitureStore";
                                 $mail->Body    = $msg_user;
                                 // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -331,9 +331,9 @@ $codigo_captcha = rand(100000, 999999);
                             ?>
                         <div class="col text-center">
                             <br><br>
-                            <h3>Gracias por tu pedido</h3>
+                            <h3>Gracias por tu compra</h3>
                             <br>
-                            <p>trabajaremos en tu pedido</p>
+                            <p>Tu pedido está en proceso</p>
                             <br>
                             <a href="./index.php">
 
@@ -350,7 +350,7 @@ $codigo_captcha = rand(100000, 999999);
                     <div class="">
                         <form class="form_buy_article" action="" method="post">
                             <div class="text-center">
-                                <h3>Datos para realizar la compra</h3>
+                                <h3>Ingrese los siguientes datos para la compra</h3>
                             </div>
                             <div class="form-group row mt-md-5">
                                 <label for="nameUser" class="col-sm-2 col-form-label">Nombre</label>
