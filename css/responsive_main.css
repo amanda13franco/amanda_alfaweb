@@ -1,0 +1,59 @@
+@media (max-width: 800px) {
+    .cuerpo {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .title_container {
+        display: flex;
+    }
+    .baner_init img {
+        height: 350px;
+    }
+    .botonesgrises {
+        width: 100%;
+        margin: auto;
+    }
+    .botonesgrises input {
+        width: 100%;
+        text-align: center;
+    }
+    .title_product {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    .producto_principal {
+        margin: auto;
+        float: none;
+        margin-bottom: 25px;
+    }
+    .container_seach {
+        padding-top: 15px;
+        width: 100%;
+    }
+    .container_seach input {
+        width: 85%;
+        height: 40px;
+    }
+    .container_seach button {
+        width: 13%;
+    }
+    .secction_footer {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .footer_content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .btn_header {
+        width: 100%;
+    }
+    .carrito {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}

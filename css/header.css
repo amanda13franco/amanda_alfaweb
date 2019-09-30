@@ -57,8 +57,8 @@ button {
 
 .cuerpo {
     position: center;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 h1 {
@@ -74,7 +74,7 @@ h1 {
 
 .verdes {
     display: inline;
-    margin-right: 50px;
+    margin-right: 35px;
 }
 
 .subtitulo {
@@ -93,18 +93,13 @@ h1 {
 }
 
 .footer_p {
-    width: 100%;
-    height: 170px;
+    height: auto;
     background-color: #e7e6e6;
 }
 
 footer {
-    width: 100%;
     height: auto;
-}
-
-.iniciar_footer {
-    margin-left: 15%;
+    background-color: #e7e6e6;
 }
 
 .fo1 {
@@ -145,4 +140,22 @@ footer {
 
 form {
     display: inline;
+}
+
+.title_container {
+    display: inline;
+}
+
+.baner_init img {
+    width: 100%;
+    height: auto;
+}
+
+.container_seach {
+    float: right;
+}
+
+.footer_content {
+    padding-left: 13%;
+    padding-right: 13%;
 }
