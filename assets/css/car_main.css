@@ -1,0 +1,41 @@
+.product-image img {
+    border-radius: 8px;
+    margin-top: 20%;
+    max-width: 100%;
+    height: 200px;
+}
+
+.product-car {
+    padding: 2%;
+    width: 220px;
+    float: left;
+    border-radius: 5px;
+    /* so child elements can use flexbox stuff too! */
+}
+
+.about_text {
+    float: left;
+}
+
+html {
+    margin: 0%;
+    width: 100%;
+}
+
+.main_content {
+    border-radius: 5px;
+}
+
+.space_content {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.selected_article {
+    background-color: rgb(240, 219, 184);
+    color: white;
+}
+
+.selected_article p {
+    color: white;
+}

@@ -1,0 +1,148 @@
+﻿body {
+    font-family: Calibri;
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+.carrito {
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: white;
+    border: none;
+}
+
+.botones {
+    width: 10px;
+}
+
+.botonesverdes {
+    padding: .8em 1.5em;
+    background: linear-gradient(#71E828, #49CA20);
+    color: white;
+    margin: -2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #4FB411 #94F857 #4FB411 #4FB411;
+}
+
+.botonesverdes1 {
+    border-radius: 4px 0 0 4px;
+    padding: .8em 1.5em;
+    background: linear-gradient(#71E828, #49CA20);
+    color: white;
+    margin: -2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #4FB411 #94F857 #4FB411 #4FB411;
+}
+
+.botonesverdes2 {
+    border-radius: 0 4px 4px 0;
+    padding: .8em 1.5em;
+    background: linear-gradient(#71E828, #49CA20);
+    color: white;
+    margin: -2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #4FB411 #94F857 #4FB411 #4FB411;
+    margin-right: 150px;
+}
+
+.cuerpo {
+    position: center;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+h1 {
+    font-size: 50px;
+    display: inline;
+}
+
+.titulo {
+    font-size: 50px;
+    color: lawngreen;
+    margin-right: 50px;
+}
+
+.verdes {
+    display: inline;
+    margin-right: 50px;
+}
+
+.subtitulo {
+    color: darkgray;
+    margin-bottom: 20px;
+}
+
+.botongris {
+    width: 200px;
+    text-align: left;
+    height: 40px;
+    background: linear-gradient(white, #e8e3e3);
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    font-size: 15px;
+}
+
+.footer_p {
+    width: 100%;
+    height: 170px;
+    background-color: #e7e6e6;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+}
+
+.iniciar_footer {
+    margin-left: 15%;
+}
+
+.fo1 {
+    height: 150px;
+    padding-top: 2%;
+    float: left;
+    /* margin-left: 50px;
+    margin-top: 30px;
+    margin-right: 50px; */
+    width: 20%;
+    background-color: #e7e6e6;
+}
+
+.letrasfo1 {
+    /* margin-left: 150px; */
+    color: #9e9696;
+}
+
+.letrasfo1:hover {
+    color: #49CA20;
+}
+
+.letrasfo2 {
+    color: #9e9696;
+}
+
+.letrasfo2:hover {
+    color: #49CA20;
+}
+
+.foo {
+    width: 100%;
+}
+
+.copy {
+    text-align: center;
+}
+
+form {
+    display: inline;
+}
